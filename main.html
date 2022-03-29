@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .header {
+        background-color: rgb(102, 119, 219);
+        position: fixed;
+        right: 0px;
+        left: 0px;
+        top: 0;
+        height: 100px;
+        margin-bottom: 10px;
+        z-index: 99999;
+    }
+
+    .header .container {
+        position: fixed;
+        height: 100px;
+        right: 0px;
+        left: 400px;
+        background-color: rgb(232, 174, 255);
+    }
+
+    .main {
+        margin-top: 110px;
+    }
+
+    .flexbox1 {
+        display: flex;
+        justify-content: center;
+        background-color: aliceblue;
+        margin-bottom: 20px;
+    }
+
+    .flexbox2 {
+        display: flex;
+        justify-content: center;
+        background-color: aliceblue;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+
+    #title {
+        width: 200px;
+    }
+
+    #main1-1 {
+        width: 680px;
+        height: 400px;
+        background-color: rgb(231, 189, 255);
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 30px;
+    }
+
+    #main1-2 {
+        width: 325px;
+        height: 400px;
+        margin-right: 15px;
+        margin-left: 15px;
+        background-color: rgb(139, 212, 255);
+        margin-bottom: 30px;
+    }
+
+    #bian {
+        margin-bottom: 10px;
+        justify-content: space-around;
+    }
+
+    #title2 {
+        width: 200px;
+        height: 100px;
+    }
+
+    #main2 {
+        width: 670px;
+        height: 100px;
+        margin-right: 25px;
+        margin-left: 25px;
+        background-color: rgb(139, 212, 255);
+        margin-bottom: 15px;
+    }
+
+    #you {
+        justify-content: right;
+        margin-bottom: 5px;
+    }
+
+    #t_you {
+        width: 150px;
+        height: 75px;
+        margin-right: 50px;
+        background-color: rgb(255, 184, 184);
+    }
+
+    #main3_1 {
+        width: 350px;
+        height: 90px;
+        margin-right: 25px;
+        margin-left: 25px;
+        background-color: rgb(139, 212, 255);
+        margin-bottom: 15px;
+    }
+
+
+    .content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .left {
+        flex: 1;
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: center; */
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+
+    .middle {
+        background-color: rgb(130, 130, 255);
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 400px;
+        height: 420px;
+        margin-right: 15px;
+    }
+
+
+    .right {
+        background-color: aliceblue;
+        display: flex;
+        flex: 2;
+        margin-left: 10px;
+        /* align-items: center; */
+        /* justify-content: center; */
+        flex-wrap: wrap;
+    }
+
+    #main3_1 {
+        width: 425px;
+        height: 80px;
+        margin-right: 25px;
+        margin-left: 25px;
+        background-color: rgb(139, 212, 255);
+        margin-bottom: 12.5px;
+    }
+
+    #main3_3 {
+        width: 212.5px;
+        height: 70px;
+        background-color: rgb(139, 212, 255);
+    }
+
+    .zhong {
+        justify-content: center;
+        display: flex;
+        background-color: aliceblue;
+    }
+
+    #t_zhong {
+        width: 150px;
+        height: 75px;
+        margin-right: 275px;
+        margin-left: 85px;
+        background-color: rgb(255, 184, 184);
+    }
+
+    .bottom {
+        height: 100px;
+        background-color: rgb(100, 149, 255);
+        margin-top: 0px;
+    }
+</style>
+
+
+<body>
+    <div class="header">
+        <div class="container"></div>
+    </div>
+    <div class="flexbox1">
+        <div class="item" id="title">1</div>
+    </div>
+    <div class="flexbox2">
+        <div class="item" id="main1-1">1</div>
+        <div class="item" id="main1-2">1</div>
+        <div class="item" id="main1-2">1</div>
+
+        <div class="item" id="main1-2">1</div>
+        <div class="item" id="main1-2">1</div>
+        <div class="item" id="main1-1">1</div>
+    </div>
+
+    <div class="flexbox1" id="you">
+        <div class="item" id="t_you">1</div>
+    </div>
+    <div class="flexbox1" id="bian">
+        <div class="item" id="title2">1</div>
+        <div class="item" id="title2">1</div>
+    </div>
+
+    <div class="flexbox2">
+        <div class="item" id="main2">1</div>
+        <div class="item" id="main2">1</div>
+        <div class="item" id="main2">1</div>
+        <div class="item" id="main2">1</div>
+        <div class="item" id="main2">1</div>
+        <div class="item" id="main2">1</div>
+        <div class="item" id="main2">1</div>
+        <div class="item" id="main2">1</div>
+    </div>
+
+    <div class="flexbox1" id="you">
+        <div class="item" id="t_you">1</div>
+    </div>
+    <div class="flexbox1" id="bian">
+        <div class="item" id="title2">1</div>
+        <div class="item" id="title2">1</div>
+        <div class="item" id="title2">1</div>
+    </div>
+    <view class="content">
+        <view class="left">
+            <div class="item" id="main3_1">1</div>
+            <div class="item" id="main3_1">1</div>
+            <div class="item" id="main3_1">1</div>
+            <div class="item" id="main3_1">1</div>
+            <div class="item" id="main3_1">1</div>
+        </view>
+
+        <view class="middle">middle</view>
+        <view class="right">
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+            <view class="item" id="main3_3">2</view>
+        </view>
+    </view>
+    <div class="zhong" id="zhong">
+        <div class="item" id="t_zhong">1</div>
+        <div class="item" id="t_zhong">1</div>
+    </div>
+    <div class="bottom"></div>
+</body>
+
+</html>
