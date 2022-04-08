@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>このdioだ！</title>
+    <style>
+        a:link {
+            text-decoration: underline;
+            color: rgb(176, 214, 255)
+        }
+
+        a:active {
+            text-decoration: blink
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: rgb(255, 115, 115)
+        }
+
+        a:visited {
+            text-decoration: none;
+            color: rgb(255, 255, 172)
+        }
+
+        html {
+            background: url(img/dajingtou.jpg) no-repeat center fixed;
+            background-size: cover;
+        }
+
+        body {
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        /*  */
+        #neon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: rgb(15, 15, 15);
+        }
+
+        .btn {
+            border: 1px solid;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 20px;
+            padding: 20px 40px;
+            font-weight: 200;
+        }
+
+        .btn2 {
+            border: 1px solid;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 10px 10px;
+            font-weight: 100;
+        }
+
+        .one {
+            color: #4cc9f0;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        .one2 {
+            color: #4cc9f0;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        .two {
+            color: #f038ff;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #f038ff;
+        }
+
+        .two2 {
+            color: #f038ff;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #f038ff;
+        }
+
+        .three {
+            color: #b9e769;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #b9e769;
+        }
+
+        .three2 {
+            color: #b9e769;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #b9e769;
+        }
+
+        .btn:hover {
+            color: white;
+            border: 0;
+        }
+
+        .btn2:hover {
+            color: white;
+            border: 0;
+        }
+
+        .one:hover {
+            background-color: #4cc9f0;
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+        }
+
+        .one2:hover {
+            background-color: #4cc9f0;
+            border: 2px solid #4cc9f0;
+        }
+
+        .two:hover {
+            background-color: #f038ff;
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+            box-shadow: 10px 10px 99px 6px rgba(240, 56, 255, 1);
+        }
+
+        .two2:hover {
+            background-color: #f038ff;
+            border: 2px solid #f038ff;
+        }
+
+        .three:hover {
+            background-color: #b9e769;
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+            box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+        }
+
+        .three2:hover {
+            background-color: #b9e769;
+            border: 2px solid #b9e769;
+        }
+
+        /*  */
+        .flexbox22 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+
+        }
+
+        .flexbox222 {
+            flex-direction: column;
+            margin-bottom: 10px;
+            height: 400px;
+            left: 20px;
+            background-color: #4cc9f0;
+            margin-right: 100px;
+            width: 50%;
+        }
+
+        #main2 {
+            width: 500px;
+            margin-top: 10px;
+            /* background-color: #4cc9f0; */
+            margin-left: 200px;
+            margin-right: 200px;
+            color: aliceblue;
+        }
+
+
+        .flexbox2 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        #shaojie {
+            width: 400px;
+            margin-left: 200px;
+            margin-right: 200px;
+            /* margin-top: 90px; */
+        }
+
+        .button {
+            background-color: #4c53af;
+            border: none;
+            color: white;
+            padding: 32px 32px;
+            height: 200px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+            align-items: center;
+
+        }
+
+        .button1 {
+            height: 50px;
+            background-color: rgb(0, 0, 0);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            align-items: center;
+        }
+
+        .button1:hover {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+        }
+
+        .flexbox3 {
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 301px;
+
+            left: 626px;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+            animation-name: example;
+            animation-duration: 8s;
+            border: 10px solid #ffbe74;
+            animation-iteration-count: infinite;
+            margin: 0 auto;
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        @keyframes example {
+            0% {
+                width: 214px;
+                height: 214px;
+            }
+
+            25% {
+                width: 227px;
+                height: 227px;
+            }
+
+            50% {
+                width: 214px;
+                height: 214px;
+            }
+
+            75% {
+                width: 227px;
+                height: 227px;
+            }
+
+            100% {
+                width: 214px;
+                height: 214px;
+            }
+        }
+
+        #cus {
+            border-collapse: collapse;
+            width: 100%;
+            height: 30px;
+        }
+
+        #cus td,
+        #cus th {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #cus tr {
+            color: white;
+        }
+
+        #cus tr:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        #cus th {
+            /* background-color: rgb(0, 0, 0); */
+            color: rgb(255, 255, 255);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100px;
+            left: 5px;
+            display: inline-block;
+            color: #ffffff;
+            border-style: dashed;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            color: black;
+        }
+
+        .desc {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="neon-btn">
+        <a href="https://madak0.github.io/form" class="btn one">表单链接</a>
+        <a href="https://madak0.github.io/main" class="btn two">拟校园网</a>
+        <a href="https://ao3-cn.top/users/Madako/pseuds/Madako" class="btn three">我的作品</a>
+    </div>
+    <div class="flexbox2">
+        <div class="item" id="shaojie">
+            <h1 style="color:white"><strong>谢正悦</strong></h1>
+            <hr><strong>
+                <ul style="font-size: 20px;color:#ffffff">
+
+                    <li>性别：女</li>
+                    <li>职业：卡面来打</li>
+                    <li>电话：<a href="http://www.baidu.com">18621700000</a>      </li>
+                    <li>邮箱：110110110@110.com</li>
+                    <li>生日：2022.04.08</li>
+                </ul>
+            </strong>
+            <hr>
+        </div>
+        <div class="item" id="shaojie">
+            <button class="btn2 one2">
+                <h2>    教育背景    <br>EDUCATION</h2>
+            </button>
+            <ol type="1" style="font-size: 20px;color:#ffffff">
+                |<li>帝丹小学</li>
+                |<li>第三新东京市第一中学</li>
+                |<li>私立秀尽学院高等学校</li>
+                |<li>东京电机大学</li>
+            </ol>
+        </div>
+    </div>
+    <div class="dropdown">
+        什么是卡面来打？
+        <div class="dropdown-content">
+            <img src="/img/rider.jpg" alt="Coffee" width="150">
+            <div class="desc">假面骑士OOO</div>
+        </div>
+    </div>
+    <div class="flexbox22">
+        <div class="item" id="flexbox222">
+            <div class="item" id="main2"><button class="btn2 two2">
+                    <h2>    工作经历    <br>EXPERIENCE</h2>
+                </button></div>
+            <div class="item" id="main2">
+                <table id="cus">
+                    <tr>
+                        <th>时间</th>
+                        <th>学校</th>
+                        <th>职务</th>
+                    </tr>
+                    <tr>
+                        <td>2020.10.10-2022.1.1</td>
+                        <td>上海对外经贸大学</td>
+                        <td>知名外卖员</td>
+                    </tr>
+                    <tr>
+                        <td>2020.10.10-2022.1.1</td>
+                        <td>上海对外经贸大学</td>
+                        <td>最佳快递员</td>
+                    </tr>
+                    <tr>
+                        <td>2020.10.10-2022.1.1</td>
+                        <td>上海对外经贸大学</td>
+                        <td>专业守门员</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="item" id="flexbox222">
+            <div class="item" id="main2"> <button class="btn2 three2">
+                    <h2>    自我绍介    <br>SELF-INTRODUCTION</h2>
+                </button></div>
+            <div class="item" id="main2"> <br>一只章鱼🐙<br>
+                通りすがりの仮面ライダーだ! 覚えておけ!<br>
+                二十岁、是学生。<br>
+                至于为什么那么二刺螈，问就是整烂活<br>
+                制作不易，低效率人通宵数晚<br>
+                求求老师给分宽容大量，行善积德，感激不尽🐙<br>
+                <h10>
+                    <hr>
+                </h10>
+            </div>
+        </div>
+    </div>
+    <div class="flexbox3">
+        <div class="photo">
+            <img src="img\stone.jpg" width="150px">
+        </div>
+    </div>
+</body>
+</html>
