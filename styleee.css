@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:20');
+
+
+
+.quote {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.quote .boxx {
+    position: relative;
+    width: 360px;
+    grid-row-end: 400px;
+    background: white;
+    overflow: hidden;
+    transition: 0.5s;
+    height: 400px;
+    z-index: 2;
+    box-sizing: border-box;
+    padding: 30px;
+    box-shadow: -10px 25px 50px rgba(0, 0, 0, .2);
+
+
+}
+
+
+
+.quote .boxx:hover {
+    box-shadow: -20px 50px 100px rgba(0, 0, 0, .5);
+
+}
+
+.quote .boxx p {
+    margin:0;
+    padding:0;
+    font-size:18px;
+    color:#4cc9f0;
+}
+
+.quote .boxx:hover p {
+   color:aliceblue;
+
+}
+
+.quote .boxx h3 {
+    position:absolute;
+    bottom:30px;
+    right:30px;
+    margin:0;
+    padding:0;
+    font-size:20px;
+
+
+}
+
+.quote .boxx:hover h3 {
+   color:aliceblue;
+   text-transform:uppercase;
+
+}
+
+.quote .bg {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    opacity:0;
+    /* background-color: black; */
+    transition:0.5s;
+    pointer-events:none;
+    width:100%;
+    height:100%;
+
+}
+
+.quote .boxx.boxx1:hover ~ .bg,
+.quote .boxx.boxx1:hover
+{
+opacity:1;
+background:linear-gradient(#03A9F4,#E91E63);
+
+}
+
+.quote .boxx.boxx2:hover ~ .bg,
+.quote .boxx.boxx2:hover
+{
+opacity:1;
+background:linear-gradient(#FFC107,#19fd36);
+
+}
+
+.quote .boxx.boxx3:hover ~ .bg,
+.quote .boxx.boxx3:hover
+{
+opacity:1;
+background:linear-gradient(#FFC107,#E91E63);
+
+}
+
+/* meixiaoguo */
+.quote .boxx:before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:-50%;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,.2);
+    pointer-events:none;
+}
+/*  */
+
+.quote .boxx:after {
+    content:url(quote.png);
+    position:absolute;
+    bottom:10%;
+    right:10%;
+   opacity:.1;
+    background:rgba(255,255,255,.2);
+    pointer-events:none;
+    filter:invert(1);
+}
+
+.quote .boxx:hover:after {
+    filter:invert(0);
+
+}
+
+
+
