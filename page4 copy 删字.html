@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>色蕴·万象</title>
+    <link rel="stylesheet" href="styleee.css">
+    <script>
+
+        var tk;
+
+
+        function begins() {//开始游戏,其实也是一个初始化的函数。
+            clearTimeout(tk);//防止多次连续的点击开始游戏按钮之后，发生意外
+            document.getElementById("b2").value = "on";//on代表是点击了开始按钮之后的。
+            document.getElementById("b2").innerHTML = "再次染色";//变成重新开始的按钮。
+
+            for (var i = 3; i < 5; i++) {
+                document.getElementById("d" + i).style.backgroundColor = "";//初始化，设置成为没有背景。
+                document.getElementById("d2").src = "colour-collect/backw.jpg";
+            }
+
+        }
+
+        function change_color(obj) {//在这里的obj是一个参数表示当前点击的对象
+            var colors = ["red", "yellow", "blue", "white", "black"];
+            if (obj.style.backgroundColor != "")//这里就是设置防止再已经点击变色之后再次点击再次变色
+            {
+                return;
+
+            }
+            if (document.getElementById("b2").value == "on") {
+                obj.style.backgroundColor = colors[Math.floor(Math.random() * 5)];
+            }
+
+        }
+
+        function sleep(delay) {//这个sleep函数类似于java等的sleep函数，单位ms
+            var start = (new Date()).getTime();
+            while ((new Date()).getTime() - start < delay) {
+                continue;
+            }
+        }
+
+
+        function changep() {
+            document.getElementById("p1").innerHTML = "";
+        }
+
+        function change_p() {//改变在p中的内容，就是显示游戏规则
+            var texts = "这是一个染色游戏，一次翻开一个颜色，自五正色中一观万象。";
+            document.getElementById("p1").innerHTML = texts;
+
+            setTimeout("changep()", 3000);
+
+
+        }
+
+        function match_color2() {
+            if ((document.getElementById("d3").style.backgroundColor !== "") && (document.getElementById("d4").style.backgroundColor !== "")) {
+                var color = document.getElementById("d3").style.backgroundColor;
+                var color2 = document.getElementById("d4").style.backgroundColor;
+                if ((color == "red" && color2 == "yellow") || (color2 == "red" && color == "yellow")) {
+
+                    document.getElementById("d2").src = "colour-collect/ry.png";
+
+
+                }
+                else if ((color == "red" && color2 == "blue") || (color2 == "red" && color == "blue")) {
+
+                    document.getElementById("d2").src = "colour-collect/ry.png";
+                }
+                else if ((color == "red" && color2 == "white") || (color2 == "red" && color == "white")) {
+
+                    document.getElementById("d2").src = "colour-collect/rw.png";
+
+                }
+                else if ((color == "red" && color2 == "black") || (color2 == "red" && color == "black")) {
+
+                    document.getElementById("d2").src = "colour-collect/rb.png";
+                }
+                else if ((color == "yellow" && color2 == "blue") || (color2 == "yellow" && color == "blue")) {
+
+                    document.getElementById("d2").src = "colour-collect/yb.png";
+
+                }
+                else if ((color == "yellow" && color2 == "white") || (color2 == "yellow" && color == "white")) {
+
+                    document.getElementById("d2").src = "colour-collect/yw.png";
+                }
+                else if ((color == "yellow" && color2 == "black") || (color2 == "yellow" && color == "black")) {
+
+                    document.getElementById("d2").src = "colour-collect/ry.png";
+                }
+                else if ((color == "blue" && color2 == "white") || (color2 == "blue" && color == "white")) {
+
+                    document.getElementById("d2").src = "colour-collect/bw.png";
+
+                }
+                else if ((color == "blue" && color2 == "black") || (color2 == "blue" && color == "black")) {
+
+                    document.getElementById("d2").src = "colour-collect/bb.png";
+                }
+                else if ((color == "white" && color2 == "black") || (color2 == "white" && color == "black")) {
+
+                    document.getElementById("d2").src = "colour-collect/wb.png";
+
+                }
+                else {
+                    sleep(200);
+                    document.getElementById("d3").style.backgroundColor = "";
+                    document.getElementById("d4").style.backgroundColor = "";
+
+                }
+            }
+        }
+
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+
+        }
+
+
+        #d1 {
+            display: flex;
+            background: url(colour-collect/back.jpg) no-repeat center fixed;
+            background-size: cover;
+        }
+
+        #d2 {
+            height: 169px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #d3 {
+            float: left;
+            margin-top: 150px;
+            margin-left: 420px;
+            color: #fff;
+            margin-bottom: 50px;
+            height: 400px;
+            width: 220px;
+            padding: 0;
+            float: certer;
+            border: black solid 1px;
+            /* background: url(colour-collect/万.png); */
+            background-size: 220px 400px;
+            background-repeat: no-repeat;
+            box-shadow: -10px 25px 50px rgba(0, 0, 0, .2);
+            /* opacity:0.2;  */
+        }
+
+        #d3:hover {
+            box-shadow: -20px 50px 100px rgba(0, 0, 0, .5);
+
+        }
+
+        #d4 {
+            float: right;
+            background-color: rgba(127, 255, 212, 0);
+            margin-top: 150px;
+            margin-right: 420px;
+            margin-bottom: 50px;
+            height: 400px;
+            width: 220px;
+            padding: 0;
+            float: certer;
+            border: black solid 1px;
+            /* background: url(colour-collect/xiang.png); */
+            background-size: 220px 400px;
+            background-repeat: no-repeat;
+            box-shadow: -10px 25px 50px rgba(0, 0, 0, .2);
+            /* opacity:0.2;  */
+        }
+
+        #d4:hover {
+            box-shadow: -20px 50px 100px rgba(0, 0, 0, .5);
+
+        }
+
+        .footer {
+            margin-top: 169px;
+            background-color: #7d7d7e00;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .footer .container {
+            background-color: #7d7d7e00;
+            display: flex;
+        }
+
+        .containerr {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #neon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .btn {
+            border: 1px solid;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 30px;
+            padding: 20px 40px;
+            font-weight: 200;
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+
+        .btn2 {
+            border: 1px solid;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 30px;
+            padding: 20px 40px;
+            font-weight: 200;
+            background-color: #4cc9f0;
+            -webkit-box-shadow: 10px 10px 99px 1px #4cc9f0;
+            -moz-box-shadow: 10px 10px 99px 1px #4cc9f0;
+            box-shadow: 10px 10px 99px 1px #4cc9f0;
+            color: white;
+            border: 0;
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+
+        .one {
+            color: #4cc9f0;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        .two {
+            color: #f038ff;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #f038ff;
+        }
+
+        .three {
+            color: #b9e769;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #b9e769;
+        }
+
+        .four {
+            color: #ffe836;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid #ffe836;
+        }
+
+        .btn:hover {
+            color: white;
+        }
+
+        .one:hover {
+            background-color: #4cc9f0;
+            -webkit-box-shadow: 10px 10px 99px 1px rgba(76, 201, 240, 1);
+            -moz-box-shadow: 10px 10px 99px 1px rgba(76, 201, 240, 1);
+            box-shadow: 10px 10px 99px 1px rgba(76, 201, 240, 1);
+        }
+
+        .two:hover {
+            background-color: #f038ff;
+            -webkit-box-shadow: 10px 10px 99px 1px rgba(240, 56, 255, 1);
+            -moz-box-shadow: 10px 10px 99px 1px rgba(240, 56, 255, 1);
+            box-shadow: 10px 10px 99px 1px rgba(240, 56, 255, 1);
+        }
+
+        .three:hover {
+            background-color: #b9e769;
+            -webkit-box-shadow: 10px 10px 99px 1px rgba(185, 231, 105, 1);
+            -moz-box-shadow: 10px 10px 99px 1px rgba(185, 231, 105, 1);
+            box-shadow: 10px 10px 99px 1px rgba(185, 231, 105, 1);
+        }
+
+        .four:hover {
+            background-color: #ffe836;
+            -webkit-box-shadow: 10px 10px 99px 1px #ffe836;
+            -moz-box-shadow: 10px 10px 99px 1px #ffe836;
+            box-shadow: 10px 10px 99px 1px #ffe836;
+        }
+
+        #b2 {
+            position: absolute;
+            margin-left: 1200px;
+        }
+
+        #d5 {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button5 {
+            background-color: white;
+            color: black;
+            border: 2px solid #555555;
+        }
+
+        .button5:hover {
+            background-color: #555555;
+            color: white;
+        }
+
+        #p1 {
+
+            position: absolute;
+            z-index: 3;
+            margin-left: 100px;
+            width: 430px;
+            font-size: 30px;
+            bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="d1">
+        <div id="d3" onmousedown="change_color(this)" onmouseup="match_color2()"></div>
+        <div id="d4" onmousedown="change_color(this)" onmouseup="match_color2()"></div>
+
+    </div>
+    <img id="d2" src="colour-collect/backw.jpg">
+    <div id="d5">
+        <p id="scores">    </p>
+
+        <button button class="button button5" type="button" id="b2" onmousedown="begins()" value="off">开始游戏</button>
+        <button button class="button button5" type="button" id="b1" onclick="change_p()">游<br>戏<br>说<br>明</button>
+        <p id="p1"></p>
+    </div>
+
+
+    <div class="footer" style="background-color: black;">
+        <div class="container" style="font-family: 'Impact';">
+            <a href="https://madak0.github.io/form" class="btn two">色蕴·中和</a>
+            <a href="https://madak0.github.io/form" class="btn three">色蕴·四季</a>
+            <a href="https://madak0.github.io/form" class="btn four">色蕴·飞花</a>
+            <a class="btn2">色蕴·万象</a>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+
+
+
+</html>
