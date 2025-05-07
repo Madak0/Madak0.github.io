@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色蕴·中和</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleee.css">
+    <!--本地-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/jquery/2.1.4/jquery.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            margin: 0 auto;
+            /* font-family:"Microsoft YaHei", "WenQuanYi Micro Hei"; */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+        }
+
+        a:link {
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #4cc9f0;
+        }
+
+        a:active {
+            text-decoration: blink
+        }
+
+        a:hover {
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #ffffff
+        }
+
+        a:visited {
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #4cc9f0;
+        }
+
+        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        /*定义滚动条轨道 内阴影+圆角*/
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+
+        /*定义滑块 内阴影+圆角*/
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-image: -webkit-gradient(linear,
+                    left bottom,
+                    left top,
+                    color-stop(0.44, rgb(122, 153, 217)),
+                    color-stop(0.72, rgb(73, 125, 189)),
+                    color-stop(0.86, rgb(28, 58, 148)));
+        }
+
+
+        .containerr {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            background-color: #7fa4f300;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            transition: top .5s;
+        }
+
+        .hiddened {
+            top: -90px;
+        }
+
+        .showed {
+            top: 0;
+            z-index: 9999;
+        }
+
+        .header .containerr {
+            background-color: #2164f300;
+        }
+
+        .main {
+            display: flex;
+            background-color: #9d2933;
+        }
+
+        .main2 {
+            display: flex;
+            background-color: #c89b40;
+        }
+
+        .screen {
+            height: 1800px;
+            flex: auto;
+            background-color: #0059ffcd;
+            display: flex;
+        }
+
+        .empty {
+            height: 200px;
+        }
+
+        .avgcard {
+            flex: auto;
+            background-color: red;
+        }
+
+        .card {
+            height: 200px;
+            background-color: #d5f083;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .footer {
+            background-color: #7d7d7e00;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer .container {
+            background-color: #31313100;
+            height: 40px;
+            color: #4cc9f0;
+            text-align: center;
+            font-size: 50px;
+            letter-spacing: 3px;
+        }
+
+        .elevator {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border-radius: 50%;
+            z-index: 3;
+        }
+
+        .circle {
+            height: 100px;
+            width: 100px;
+            background-color: #9d2933;
+            position: absolute;
+            left: 80px;
+            top: 150px;
+            z-index: 99;
+            border-radius: 50%;
+        }
+
+        .btn-primary {
+            border: 1px solid;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 15px 30px;
+            font-weight: 150;
+            color: #4cc9f0;
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        .btn {
+            border: 1px solid;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 15px 30px;
+            font-weight: 150;
+            color: #4cc9f0;
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        #qq {
+            border: 1px solid;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 15px 30px;
+            font-weight: 150;
+            color: #4cc9f0;
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        #qq:hover {
+            color: white;
+            border: 0;
+            background-color: #4cc9f0;
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+        }
+
+
+        .btn-primary:hover {
+            color: white;
+            border: 0;
+            background-color: #4cc9f0;
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+        }
+
+        .titlee {
+            display: flex;
+            justify-content: center;
+            background-color: aliceblue;
+            height: 750px;
+            width: 100%;
+            background: url(../final/louvre.jpg) no-repeat center fixed;
+            background-size: 1000px, 750px;
+            background-size: cover;
+        }
+
+        .carousel {
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+        }
+
+
+        .carousel-control {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 15%;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            filter: alpha(opacity=50);
+            opacity: .5
+        }
+
+        .carousel-control.left {
+            left: 0;
+            right: auto;
+            background-image: linear-gradient(to right, rgba(91, 124, 255, 0) 0, rgba(0, 0, 0, .0001) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+            background-repeat: repeat-x
+        }
+
+        .carousel-control.right {
+            right: 0;
+            left: auto;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(91, 124, 255, 0)100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+            background-repeat: repeat-x
+        }
+
+
+
+
+        .touxiang {
+            position: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-right: 50px;
+            width: 100%;
+        }
+
+        .touxiang2 {
+            position: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-right: 100px;
+            width: 100%;
+        }
+
+        .touxiang img {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            line-height: 30px;
+            /*border-radius: 50%;*/
+            border: 2px solid #9d2933;
+            background: lightgreen;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .touxiang2 img {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            line-height: 30px;
+            border: 2px solid #c89b40;
+            background: lightgreen;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .touxiang img:hover+span {
+            transform: translateX(40px);
+            opacity: 1;
+        }
+
+        .touxiang2 img:hover+span {
+            transform: translateX(40px);
+            opacity: 1;
+        }
+
+        .touxiang span {
+            display: inline-block;
+            width: auto;
+            font-size: 30px;
+            height: 140px;
+            line-height: 34px;
+            background: #fff;
+            border-radius: 30px;
+            text-align: center;
+            color: #9d2933;
+            opacity: 0;
+            transition: all 1s;
+            transform: translateX(80px);
+        }
+
+        .touxiang2 span {
+            display: inline-block;
+            width: auto;
+            font-size: 30px;
+            height: 160px;
+            line-height: 34px;
+            background: #fff;
+            border-radius: 30px;
+            text-align: center;
+            color: #c89b40;
+            opacity: 0;
+            transition: all 1s;
+            transform: translateX(80px);
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            height: 860px;
+            transition: width 1s;
+        }
+
+        .box {
+            width: 100%;
+            height: 860px;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        li:hover {
+            width: 800px;
+        }
+
+        li:not(:hover) {
+            width: 100px;
+        }
+
+        .spa {
+            justify-content: center;
+            background-color: #7fa4f300;
+            margin-bottom: 10px;
+            position: fixed;
+            width: 100%;
+            top: 80px;
+           left: 1250px;
+ 
+            z-index: 9;
+            transition: left .5s;
+        }
+
+        .hiddeneded {
+            left: 2800px;
+        }
+
+        .hiddeneded- {
+            margin-left: -400px;
+        }
+
+        h1 {
+            margin-top: 150px;
+            font-size: 100px;
+            color: rgb(255, 239, 247);
+        }
+
+        .leftt {
+            float: left;
+            margin-top: 50px;
+            margin-left: 120px;
+            height: 600px;
+            width: 450px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .rightt {
+            float: right;
+            height: 600px;
+            width: 880px;
+            background-color: rgba(127, 255, 212, 0);
+            margin-top: 100px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            /*ichiwaiidesu*/
+            position: relative;
+        }
+
+        .leftt2 {
+            float: left;
+            height: 610px;
+            width: 900px;
+            background-color: rgba(127, 255, 212, 0);
+            margin-top: 100px;
+            margin-left: 15px;
+            margin-bottom: 10px;
+            margin-right: 5px;
+        }
+
+        .rightt2 {
+            float: right;
+            margin-top: 20px;
+            right: 5px;
+            height: 620px;
+            width: 460px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .middlel {
+            float: left;
+            margin-top: 20px;
+            right: 5px;
+            height: 620px;
+            width: 260px;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .middle {
+            float: middle;
+            height: 610px;
+            width: 900px;
+            background-color: rgba(127, 255, 212, 0);
+            margin-top: 100px;
+            margin-left: 15px;
+            margin-bottom: 2px;
+            margin-right: 5px;
+        }
+
+        .middler {
+            float: right;
+            margin-top: 20px;
+            right: 5px;
+            height: 620px;
+            width: 260px;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+
+        .iten {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: #9d2933;
+        }
+
+        .iten2 {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: #c89b40;
+        }
+
+
+        h2 {
+            font-size: 60px;
+        }
+
+        h {
+            font-size: 30px;
+        }
+
+        .change {
+            height: 50px;
+            background-image: linear-gradient(lightblue, #9198e5);
+        }
+
+        .change2 {
+            height: 50px;
+            background-image: linear-gradient(#9198e5, #2a53ad);
+        }
+
+        .change3 {
+            height: 50px;
+            background-image: linear-gradient(#2a53ad, white);
+        }
+
+        #navigation a {
+            display: block;
+            text-decoration: none;
+            width: 220px;
+            line-height: 40px;
+            border-width: 1px 1px 0 0;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 15px 30px;
+            font-weight: 150;
+            color: #4cc9f0;
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        #navigation a:hover {
+            display: block;
+            text-decoration: none;
+            width: 220px;
+            line-height: 40px;
+            border-width: 1px 1px 0 0;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 15px 30px;
+            font-weight: 150;
+            color: #4cc9f0;
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid #4cc9f0;
+        }
+
+        #navigation li {
+            /* 去掉列表点点 */
+            list-style-type: none;
+            text-align: center;
+            /* <!--zitijvzhong--> */
+            width: 220px;
+            position: relative;
+
+        }
+
+        #navigation li:hover {
+            /* 去掉列表点点 */
+            list-style-type: none;
+            text-align: center;
+            /* <!--zitijvzhong--> */
+            position: relative;
+            width: 220px;
+        }
+
+
+        #navigation>li {
+            /* 让他从左到右排 */
+            float: left;
+        }
+
+        #navigation>li>ul {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            /* 去除自动的缩进 */
+        }
+
+        #navigation li ul li ul {
+            position: absolute;
+            top: 0px;
+            left: 121px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 孙子海 */
+
+        #navigation li ul {
+            display: none;
+        }
+
+
+        #navigation:hover {
+            color: white;
+            border: 0;
+            background-color: #4cc9f0;
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+            box-shadow: 10px 10px 99px 6px rgba(76, 201, 240, 1);
+        }
+
+        hr {
+            width: 80%;
+            margin: 10px auto;
+            height: 1px;
+            background-image: linear-gradient(to right,
+                    rgba(255, 255, 255, 0),
+                    cyan,
+                    rgba(0, 0, 0, 0));
+        }
+
+        .learn {
+            background-color: white;
+            color:#4cc9f0;
+            width:100%;
+            display: flex;
+            text-align:left;
+        }
+
+        #aa {
+            margin-top:20px;
+            color:#4cc9f0;
+            font-family:Arial,Helvetica,sans-serif;
+            font-size: 100px;
+            text-align:left;
+            float:left;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <button id="qq" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+            aria-controls="offcanvasTop" style="font-family:Arial,Helvetica,sans-serif;">目录</button>
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasTopLabel" style="color:#4cc9f0">目录</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul id="navigation">
+                    <li><a href="#" style=" background-color: #4cc9f0; color: white;">主页面——色蕴·中和</a></li>
+                    <li><a href="#" style=" background-color: #4cc9f0; color: white;margin-left:220px;z-index: 3;">子页面</a></li>
+                    <li><a href="#">.</a></li>
+
+                    <li><a href="https://ch-christal.github.io/colorgallery/page2.html">色蕴·四季</a></li>
+                    <li><a href="https://ch-christal.github.io/colorgallery/cover.html">色蕴·飞花</a></li>
+                    <li><a href="https://madak0.github.io/colour-collect/seyunwanxiang.html">色蕴·万象</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="spa">
+        <span
+            style="font-family: Segoe UI, Helvetica Neue,  PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;font-weight: 500;-webkit-text-stroke:2px #ffffff;color: white;font-size:155px;">
+            色<br> ·<br> 蕴</span>
+    </div>
+
+    <div class="main">
+        <div class="box">
+            <ul>
+                <li><img src="colour-collect/hong1.jpg" alt=""></li>
+                <li><img src="colour-collect/huang1.jpg" alt=""></li>
+                <li><img src="colour-collect/qing5.jpg" alt=""></li> <!-- yingxiang1也可 -->
+                <li><img src="colour-collect/bai2.jpg" alt=""></li>
+                <li><img src="colour-collect/hei5.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+    </div>
+
+    <div class="main">
+        <div class="rightt">
+            <div id="myCarousel" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="colour-collect/hongzhaopian.jfif" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="colour-collect/hongzhaopian.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="colour-collect/hongzp3.png" alt="Third slide">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div class="change"></div> -->
+
+
+    <div class="main2"style="margin-bottom: 0px;">
+        <div class="leftt2"style="margin-bottom: 0px;">
+            <div id="myCarousela" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousela" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousela" data-slide-to="1"></li>
+                    <li data-target="#myCarousela" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="colour-collect/huangzp3.png" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="colour-collect/huangzp22.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="colour-collect/huangzp1.png" alt="Third slide">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="left carousel-control" href="#myCarousela" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousela" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="rightt2"style="margin-bottom: 0px;">
+            <h2>HUANG</h2>
+            <font size="5"> “黄色中和之色，自然之性，万世不易。”黄色在中国传统文化里居五色之中，是“帝王之色”。
+                体现了古代对地神的崇拜，渊源于古代的阴阳 五行学说。
+                黄色在中国最初的含义是明亮和富贵，代表鲜明的个性，沉甸甸的财富，一直被视作吉祥的颜色，人们甚至将美好的日子称作黄道吉日。
+                如《周易·坤卦》说：“黄裳，元吉。”又说“龙战于野，其血玄黄。”因为黄色是五色之中色，象征着中道，即无过无不及，只有如此才能免遭祸患。
+                <br>隋文帝推翻北周政权，登上了皇位,成为历史上第一个黄袍加身的皇帝。
+                由于黄色所代表的正统、中道以及和龙的相关性，所以到了后代逐渐和君主联系起来，成为了君主的专用颜色。
+                在中国传统文化里居五色之中，是帝王之色，象征着尊贵。</font>
+        </div>
+    </div>
+
+
+    <div class="iten2"style="margin-top: 0px;">
+        <div class="touxiang2"style="margin-top: 0px;">
+            <img src="colour-collect/huangzi.png" width="150px">
+            <span style="font-family:Arial,Helvetica,sans-serif;margin-right: 5px;height:130px;margin-bottom: 10px;margin-top: 0px;">
+                古代崇尚黄色，黄色常常被看作君权的象征。这首先起源于古代农业民族的“敬土”思想。<br>
+                阴阳学说里，黄色在五行中为土，土是在宇宙中央的“中央土”，放在五行当中，“土为尊”。<br>
+                在古代，黄色是皇家御用，明黄色的衣服只有皇子才有资格穿，黄色在中国成了高贵的颜色。</span>
+        </div>
+    </div>
+
+    <!-- <div class="change2"></div> -->
+
+    <div class="main" style="background-color: #4c8dae;">
+        <marquee scrolldelay="60" style="background-color: #4c8dae;">
+            <h1>
+                《荀子》：青取之于蓝，而青于蓝。  李白《望天门山诗》：两岸青山相对出。
+                  李白《将进酒》：朝如青丝暮成雪。  《古诗十九首》：青青河畔草。
+                  《古诗十九首》：青青河畔草。  《汉书》：竹帛所载，丹青所画。
+                  《考工记》：东方谓之青。  《灵枢》：春青风，夏阳风。  孟浩然《大堤行寄万七》：踏青二三月。  《荀子》：青取之于蓝，而青于蓝。  李白《望天门山诗》：两岸青山相对出。
+                  李白《将进酒》：朝如青丝暮成雪。  《古诗十九首》：青青河畔草。
+                  《古诗十九首》：青青河畔草。  《汉书》：竹帛所载，丹青所画。
+                  《考工记》：东方谓之青。  《灵枢》：春青风，夏阳风。  孟浩然《大堤行寄万七》：踏青二三月。
+            </h1>
+        </marquee>
+    </div>
+
+    <div class="main" style="background-color: #4c8dae;">
+        <div class="leftt">
+            <h2>QING</h2>
+            <font size="5"> 青色在此与日升的东方 “同构” , 同样含有“生”之意。
+                而中国人的尚青表达的是人类与大自然天人合一的哲学，所以在古代文化当中，道家是最崇尚青色的。<br>
+                晚明文人热衷收藏、把玩古董，偏爱清雅素色，因此更看重五色体系中色彩清淡的青白二色；在瓷器选择上，则以宋元时期青瓷、白瓷为重。
+                宋代官窑、哥窑、汝窑以粉青色为上品，青白色次之，最差的是油灰一样的青色。
+                《清秘藏》记载：“官窑品格与哥窑大约相同，其色俱以粉青色为上。”
+                粉青在南宋末年烧制成功，和梅子青成为公认的青瓷釉色巅峰之作。</font>
+        </div>
+        <div class="rightt">
+            <div id="myCarouselaa" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarouselaa" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarouselaa" data-slide-to="1"></li>
+                    <li data-target="#myCarouselaa" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="colour-collect/qingzp1.png" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="colour-collect/qingzp2.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="colour-collect/qing5.jfif" alt="Third slide">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="left carousel-control" href="#myCarouselaa" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarouselaa" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="change3"></div> -->
+
+        <!-- <div class="change2"></div> -->
+
+
+
+
+
+
+
+<!-- <div class="change2"></div> -->
+
+
+
+<div class="learn"><a id="aa">了解更多</a></div>
+    <div class="quote">
+
+    </div>
+
+    <hr>
+    <div class="footer">
+        <div class="container" style="font-family: 'Impact';">制作者  谢正悦 | 陈晶晶</div>
+    </div>
+    <div class="elevator">
+        <img src="返回.png" width="50px">
+    </div>
+
+
+    <script>
+        var elevator = document.getElementsByClassName("elevator")[0];
+
+        console.dir(elevator)
+        window.onscroll = function (e) {
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            if (scrollTop >= 500) {
+                elevator.style.display = "block"
+            } else {
+                elevator.style.display = "none"
+            }
+            elevator.onclick = () => {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth' //重点在此
+                })
+            }
+        }
+        function displaySubMenu(li) {
+            var subMenu = li.getElementsByTagName("ul")[0];
+            subMenu.style.display = "block";
+        }
+        function hideSubMenu(li) {
+            var subMenu = li.getElementsByTagName("ul")[0];
+            subMenu.style.display = "none";
+        }
+
+
+        $(function () {
+            var winHeight = $(document).scrollTop();
+
+            $(window).scroll(function () {
+                var scrollY = $(document).scrollTop();
+
+                if (scrollY < 500) {
+                    $(".header").addClass('hiddened');
+                } else {
+                    $(".header").removeClass('hiddened');
+                }
+
+                if (scrollY > 380) {
+                    $(".spa").addClass('hiddeneded');
+                } else {
+                    $(".spa").removeClass('hiddeneded');
+                }
+
+                if (scrollY < 800) {
+                    $(".leftt").addClass('hiddeneded-');
+                } else {
+                    $(".leftt").removeClass('hiddeneded-');
+                }
+            })
+        })
+
+
+    </script>
+
+</body>
+
+</html>
